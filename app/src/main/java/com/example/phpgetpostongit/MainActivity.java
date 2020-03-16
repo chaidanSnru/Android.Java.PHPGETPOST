@@ -3,9 +3,12 @@ package com.example.phpgetpostongit;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.provider.DocumentsContract;
 import android.widget.TextView;
 
 import org.jetbrains.annotations.NotNull;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
 
 import java.io.IOException;
 
@@ -28,7 +31,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 Request asyncRequest = new Request.Builder()
-                        .url("https://chaidan2.000webhostapp.com/first.php")
+                        // .url("https://chaidan2.000webhostapp.com/first.php")
+                        .url("https://chaidan2.000webhostapp.com/userget.php/?username=admin&password=admin")
                         .build();
                 asyncClient.newCall(asyncRequest).enqueue(new Callback() {
                     @Override
@@ -42,11 +46,13 @@ public class MainActivity extends AppCompatActivity {
                             @Override
                             public void run() {
                                 try {
-                                    final String res = response.body().string();
+                                    String res = response.body().string();
+                                    Document cleanTxt = Jsoup.parse(res);
+                                    final String bodyTxt = cleanTxt.body().text();
                                     runOnUiThread(new Runnable() {
                                         @Override
                                         public void run() {
-                                            txtResult.setText(res);
+                                            txtResult.setText(bodyTxt);
                                         }
                                     });
                                 } catch (IOException e) {
