@@ -16,25 +16,25 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 public class MainActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
     }
-
     public void onClick(View view) {
         final TextView txtResult = (TextView) findViewById(R.id.textView);
+        TextView editText1 = (TextView) findViewById(R.id.editText1);
+        TextView editText2 = (TextView) findViewById(R.id.editText2);
+        TextView editText3 = (TextView) findViewById(R.id.editText3);
+        String url = "https://chaidan2.000webhostapp.com/userInsertGet.php/?username="
+                +editText1.getText()+"&password="+editText2.getText()+"&role="+editText3.getText();
+        // Log.d("URL", url);
         // Instantiate new OkHttpClient
         OkHttpClient client = new OkHttpClient();
-
         // Initialize a new Request
         Request request = new Request.Builder()
-                .url("https://chaidan2.000webhostapp.com/first.php")
+                .url(url)
                 .build();
-
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -50,10 +50,8 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     Log.d("OKhttp", "Request Successful.");
                 }
-
                 // Read data in the worker thread
                 final String data = response.body().string();
-
                 // Display the requested data on UI in main thread
                 runOnUiThread(new Runnable() {
                     @Override
