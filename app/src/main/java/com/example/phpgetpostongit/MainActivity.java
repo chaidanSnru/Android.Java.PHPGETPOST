@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.IOException;
 
@@ -32,7 +33,8 @@ public class MainActivity extends AppCompatActivity {
 
         // Initialize a new Request
         Request request = new Request.Builder()
-                .url("https://chaidan2.000webhostapp.com/first.php")
+                //.url("https://chaidan2.000webhostapp.com/first.php")
+                .url("https://api.androidhive.info/contacts/")
                 .build();
 
         client.newCall(request).enqueue(new Callback() {
@@ -59,7 +61,9 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         // Display requested url data as string into text view
-                        txtResult.setText(data);
+                        // txtResult.setText(data);
+                        // Display requested url data in Toast
+                        Toast.makeText(getApplicationContext(),data,Toast.LENGTH_LONG).show();
                     }
                 });
             }
