@@ -34,7 +34,8 @@ public class MainActivity extends AppCompatActivity {
         // Initialize a new Request
         Request request = new Request.Builder()
                 //.url("https://chaidan2.000webhostapp.com/first.php")
-                .url("https://api.androidhive.info/contacts/")
+                .url("https://tutorialscache.com/movies.json")
+                //.url("https://api.androidhive.info/contacts/")
                 .build();
 
         client.newCall(request).enqueue(new Callback() {
