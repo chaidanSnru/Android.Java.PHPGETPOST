@@ -2,6 +2,7 @@ package com.example.phpgetpostongit;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -35,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     public void onClick(View view) {
         final TextView txtResult = (TextView) findViewById(R.id.textView);
         final ListView listView = (ListView)findViewById(R.id.listView);
+        final Context context = this;
         // Instantiate new OkHttpClient
         OkHttpClient client = new OkHttpClient();
 
@@ -76,18 +78,19 @@ public class MainActivity extends AppCompatActivity {
                         MovieList movieList = gson.fromJson(data, MovieList.class);
                         //StringBuilder builder = new StringBuilder();
                         //builder.setLength(0);
-                        List<Movie> movies = movieList.getMovies();
-                        //ArrayList<Movie> movies1 = movieList.getMovies();
-
+                        //List<Movie> movies = movieList.getMovies();
+                        ArrayList<Movie> movies = movieList.getMovies();
+                        CustomeAdapter customeAdapter = new CustomeAdapter(context,movies);
+                        listView.setAdapter(customeAdapter);
                         // ArrayAdapter<Movie> adapter = new ArrayAdapter<Movie>(this,R.layout.movieslist, movies);
-                        for(Movie movie : movies){
+                        // for(Movie movie : movies){
                         //    builder.append(movie.getName());
                         //    builder.append("\n");
                         //    String movieName = movie.getName();
                         //    TextView movieNameTextView = new TextView(View v);
                         //    movieNameTextView.setText(movieName);
 
-                        }
+                        //}
                         //Toast.makeText(getApplicationContext(),builder.toString(),Toast.LENGTH_LONG).show();
                     }
                 });

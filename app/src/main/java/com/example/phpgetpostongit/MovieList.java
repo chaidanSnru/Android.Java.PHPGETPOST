@@ -1,11 +1,12 @@
 package com.example.phpgetpostongit;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MovieList {
     Boolean status;
     int totalRecored;
-    List<Movie> movies;
+    ArrayList<Movie> movies;
 
     public Boolean getStatus() {
         return status;
@@ -23,11 +24,11 @@ public class MovieList {
         this.totalRecored = totalRecored;
     }
 
-    public List<Movie> getMovies() {
+    public ArrayList<Movie> getMovies() {
         return movies;
     }
 
-    public void setMovies(List<Movie> movies) {
+    public void setMovies(ArrayList<Movie> movies) {
         this.movies = movies;
     }
 }
