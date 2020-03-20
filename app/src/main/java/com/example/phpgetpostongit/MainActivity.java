@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void onClick(View view) {
         final TextView txtResult = (TextView) findViewById(R.id.textView);
+        final ListView listView = (ListView)findViewById(R.id.listView);
         // Instantiate new OkHttpClient
         OkHttpClient client = new OkHttpClient();
 
@@ -70,15 +73,20 @@ public class MainActivity extends AppCompatActivity {
                         // Toast.makeText(getApplicationContext(),data,Toast.LENGTH_LONG).show();
                         Gson gson = new Gson();
                         MovieList movieList = gson.fromJson(data, MovieList.class);
-                        JsonBlog jsonBlog = gson.fromJson(data, JsonBlog.class);
-                        StringBuilder builder = new StringBuilder();
-                        builder.setLength(0);
+                        //StringBuilder builder = new StringBuilder();
+                        //builder.setLength(0);
                         List<Movie> movies = movieList.getMovies();
+
+                        // ArrayAdapter<Movie> adapter = new ArrayAdapter<Movie>(this,R.layout.movieslist, movies);
                         for(Movie movie : movies){
-                            builder.append(movie.getName());
-                            builder.append("\n");
+                        //    builder.append(movie.getName());
+                        //    builder.append("\n");
+                        //    String movieName = movie.getName();
+                        //    TextView movieNameTextView = new TextView(View v);
+                        //    movieNameTextView.setText(movieName);
+
                         }
-                        Toast.makeText(getApplicationContext(),builder.toString(),Toast.LENGTH_LONG).show();
+                        //Toast.makeText(getApplicationContext(),builder.toString(),Toast.LENGTH_LONG).show();
                     }
                 });
             }

@@ -5,6 +5,13 @@ public class Movie {
     float ratting;
     String name, imageUrl;
 
+    public Movie(int id, float ratting, String name, String imageUrl) {
+        this.id = id;
+        this.ratting = ratting;
+        this.name = name;
+        this.imageUrl = imageUrl;
+    }
+
     public int getId() {
         return id;
     }
