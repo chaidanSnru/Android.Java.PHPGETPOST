@@ -11,6 +11,7 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import okhttp3.Call;
@@ -72,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
                         MovieList movieList = gson.fromJson(data, MovieList.class);
                         StringBuilder builder = new StringBuilder();
                         builder.setLength(0);
-                        List<Movie> movies = movieList.getMovies();
+                        ArrayList<Movie> movies = movieList.getMovies();
                         for(Movie movie : movies){
                             builder.append(movie.getName());
                             builder.append("\n");
