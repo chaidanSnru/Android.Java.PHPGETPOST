@@ -5,6 +5,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -36,7 +40,23 @@ public class CustomeAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        return null;
+    public View getView(int position, View view, ViewGroup parent) {
+        View convertView = view;
+        if (convertView==null){
+            convertView = layoutInflater.inflate(R.layout.movieslist,null);
+            TextView movieName = convertView.findViewById(R.id.movieName);
+            ImageView movieImg = convertView.findViewById(R.id.movieImageView);
+
+            movie = moviesJsonData.get(position);
+            movieName.setText(movie.getName());
+
+            //Picasso load image
+            //Picasso.with(context).load(movie.getImageUrl()).into(movieImg);
+            Picasso.get().load(movie.getImageUrl()).into(movieImg);
+
+            //set ratting
+            // ratingBar.setRating((float) moviesModel.getRatting());
+        }
+        return convertView;
     }
 }
