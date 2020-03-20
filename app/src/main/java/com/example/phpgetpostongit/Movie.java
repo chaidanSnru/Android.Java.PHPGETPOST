@@ -1,7 +1,8 @@
 package com.example.phpgetpostongit;
 
 public class Movie {
-    int id, ratting;
+    int id;
+    float ratting;
     String name, imageUrl;
 
     public int getId() {
@@ -12,11 +13,11 @@ public class Movie {
         this.id = id;
     }
 
-    public int getRatting() {
+    public float getRatting() {
         return ratting;
     }
 
-    public void setRatting(int ratting) {
+    public void setRatting(float ratting) {
         this.ratting = ratting;
     }
 

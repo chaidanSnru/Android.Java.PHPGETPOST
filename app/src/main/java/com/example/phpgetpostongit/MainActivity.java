@@ -8,7 +8,10 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+
 import java.io.IOException;
+import java.util.List;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -64,7 +67,17 @@ public class MainActivity extends AppCompatActivity {
                         // Display requested url data as string into text view
                         // txtResult.setText(data);
                         // Display requested url data in Toast
-                        Toast.makeText(getApplicationContext(),data,Toast.LENGTH_LONG).show();
+                        // Toast.makeText(getApplicationContext(),data,Toast.LENGTH_LONG).show();
+                        Gson gson = new Gson();
+                        MovieList movieList = gson.fromJson(data, MovieList.class);
+                        StringBuilder builder = new StringBuilder();
+                        builder.setLength(0);
+                        List<Movie> movies = movieList.getMovies();
+                        for(Movie movie : movies){
+                            builder.append(movie.getName());
+                            builder.append("\n");
+                        }
+                        Toast.makeText(getApplicationContext(),builder.toString(),Toast.LENGTH_LONG).show();
                     }
                 });
             }
