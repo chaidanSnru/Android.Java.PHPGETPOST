@@ -3,7 +3,7 @@ package com.example.phpgetpostongit;
 public class Movie {
     int id;
     float ratting;
-    String name, imageUrl;
+    String name, image;
 
     public int getId() {
         return id;
@@ -29,11 +29,11 @@ public class Movie {
         this.name = name;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
+    public String getImage() {
+        return image;
     }
 
     public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+        this.image = image;
     }
 }

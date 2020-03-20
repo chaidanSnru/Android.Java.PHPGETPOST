@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
                         builder.setLength(0);
                         List<Movie> movies = movieList.getMovies();
                         for(Movie movie : movies){
-                            builder.append(movie.getName());
+                            builder.append(movie.getImage());
                             builder.append("\n");
                         }
                         Toast.makeText(getApplicationContext(),builder.toString(),Toast.LENGTH_LONG).show();
