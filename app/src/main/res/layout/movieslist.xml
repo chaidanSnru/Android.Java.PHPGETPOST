@@ -7,25 +7,27 @@
 
     <TextView
         android:id="@+id/movieName"
-        android:layout_width="396dp"
+        android:layout_width="372dp"
         android:layout_height="40dp"
         android:text="TextView"
-        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteX="19dp"
         tools:layout_editor_absoluteY="16dp" />
 
     <ImageView
         android:id="@+id/movieImageView"
-        android:layout_width="398dp"
-        android:layout_height="101dp"
+        android:layout_width="375dp"
+        android:layout_height="102dp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintTop_toBottomOf="@+id/ratting"
         app:srcCompat="@drawable/ic_launcher_foreground"
-        tools:layout_editor_absoluteX="7dp"
-        tools:layout_editor_absoluteY="117dp" />
+        tools:layout_editor_absoluteX="16dp" />
 
     <TextView
-        android:id="@+id/movieURL"
-        android:layout_width="397dp"
-        android:layout_height="43dp"
+        android:id="@+id/ratting"
+        android:layout_width="375dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="24dp"
         android:text="TextView"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="65dp" />
+        app:layout_constraintTop_toBottomOf="@+id/movieName"
+        tools:layout_editor_absoluteX="18dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

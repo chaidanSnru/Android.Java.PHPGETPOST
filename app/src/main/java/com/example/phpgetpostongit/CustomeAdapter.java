@@ -45,12 +45,12 @@ public class CustomeAdapter extends BaseAdapter {
         if (convertView==null){
             convertView = layoutInflater.inflate(R.layout.movieslist,null);
             TextView movieName = convertView.findViewById(R.id.movieName);
-            TextView movieURL = convertView.findViewById(R.id.movieURL);
+            TextView ratting = convertView.findViewById(R.id.ratting);
             ImageView movieImg = convertView.findViewById(R.id.movieImageView);
 
             movie = moviesJsonData.get(position);
             movieName.setText(movie.getName());
-            movieURL.setText(movie.getImageUrl());
+            ratting.setText(String.valueOf(movie.getRatting()));
             //Picasso load image
             //Picasso.with(context).load(movie.getImageUrl()).into(movieImg);
             Picasso.get().load(movie.getImageUrl()).into(movieImg);
