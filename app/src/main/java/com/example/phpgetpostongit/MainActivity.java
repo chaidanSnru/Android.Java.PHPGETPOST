@@ -70,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
                         // Toast.makeText(getApplicationContext(),data,Toast.LENGTH_LONG).show();
                         Gson gson = new Gson();
                         MovieList movieList = gson.fromJson(data, MovieList.class);
+                        JsonBlog jsonBlog = gson.fromJson(data, JsonBlog.class);
                         StringBuilder builder = new StringBuilder();
                         builder.setLength(0);
                         List<Movie> movies = movieList.getMovies();
