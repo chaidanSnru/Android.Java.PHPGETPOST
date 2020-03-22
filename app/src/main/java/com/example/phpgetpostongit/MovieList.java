@@ -5,7 +5,7 @@ import java.util.List;
 
 public class MovieList {
     Boolean status;
-    int totalRecored;
+    int total_recoreds;
     ArrayList<Movie> movies;
 
     public Boolean getStatus() {
@@ -17,11 +17,11 @@ public class MovieList {
     }
 
     public int getTotalRecored() {
-        return totalRecored;
+        return total_recoreds;
     }
 
-    public void setTotalRecored(int totalRecored) {
-        this.totalRecored = totalRecored;
+    public void setTotalRecored(int total_recoreds) {
+        this.total_recoreds = total_recoreds;
     }
 
     public ArrayList<Movie> getMovies() {

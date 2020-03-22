@@ -29,8 +29,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
     }
 
     public void onClick(View view) {
@@ -39,13 +37,11 @@ public class MainActivity extends AppCompatActivity {
         final Context context = this;
         // Instantiate new OkHttpClient
         OkHttpClient client = new OkHttpClient();
-
         // Initialize a new Request
         Request request = new Request.Builder()
-                //.url("https://chaidan2.000webhostapp.com/first.php")
-                //.url("https://tutorialscache.com/movies.json")
+                .url("https://tutorialscache.com/movies.json")
                 //.url("https://api.androidhive.info/contacts/")
-                .url("https://chaidan2.000webhostapp.com/movies.json")
+                //.url("https://chaidan2.000webhostapp.com/movies.json")
                 .build();
 
         client.newCall(request).enqueue(new Callback() {
@@ -71,28 +67,16 @@ public class MainActivity extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        // Display requested url data as string into text view
-                        // txtResult.setText(data);
-                        // Display requested url data in Toast
-                        // Toast.makeText(getApplicationContext(),data,Toast.LENGTH_LONG).show();
+                        // Created GSON obj
                         Gson gson = new Gson();
+                        // Transform movie json data to MovieList model class
                         MovieList movieList = gson.fromJson(data, MovieList.class);
-                        //StringBuilder builder = new StringBuilder();
-                        //builder.setLength(0);
-                        //List<Movie> movies = movieList.getMovies();
+                        // Created Movie arraylist from Movielist
                         ArrayList<Movie> movies = movieList.getMovies();
+                        // Created movie arraylist adapter for listview
                         CustomeAdapter customeAdapter = new CustomeAdapter(context,movies);
+                        // set adapter with created adapter
                         listView.setAdapter(customeAdapter);
-                        // ArrayAdapter<Movie> adapter = new ArrayAdapter<Movie>(this,R.layout.movieslist, movies);
-                        // for(Movie movie : movies){
-                        //    builder.append(movie.getName());
-                        //    builder.append("\n");
-                        //    String movieName = movie.getName();
-                        //    TextView movieNameTextView = new TextView(View v);
-                        //    movieNameTextView.setText(movieName);
-
-                        //}
-                        //Toast.makeText(getApplicationContext(),builder.toString(),Toast.LENGTH_LONG).show();
                     }
                 });
             }
