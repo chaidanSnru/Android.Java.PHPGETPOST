@@ -25,8 +25,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
     }
 
     public void onClick(View view) {
@@ -64,13 +62,9 @@ public class MainActivity extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        // Display requested url data as string into text view
-                        // txtResult.setText(data);
-                        // Display requested url data in Toast
-                        // Toast.makeText(getApplicationContext(),data,Toast.LENGTH_LONG).show();
+                        // Display requested url data as string into toat with movie name
                         Gson gson = new Gson();
                         MovieList movieList = gson.fromJson(data, MovieList.class);
-                        JsonBlog jsonBlog = gson.fromJson(data, JsonBlog.class);
                         StringBuilder builder = new StringBuilder();
                         builder.setLength(0);
                         List<Movie> movies = movieList.getMovies();
