@@ -75,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
                         List<Movie> movies = movieList.getMovies();
                         for(Movie movie : movies){
                             builder.append(movie.getName());
+                            builder.append(movie.getRatting());
                             builder.append("\n");
                         }
                         Toast.makeText(getApplicationContext(),builder.toString(),Toast.LENGTH_LONG).show();
